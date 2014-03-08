@@ -1,0 +1,96 @@
+<%= form_for(@offer, html: {class: "form-horizontal"}) do |f| %>
+  <% if @offer.errors.any? %>  
+    <div class="alert alert-danger">
+      <strong><%= pluralize(@offer.errors.count, "error") %> prohibited this offer from being saved:</strong>
+      <ul>
+        <% @offer.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :business_name, class: ["control-label", "col-sm-2"] %>
+    <div class="col-sm-10">
+      <%= f.text_field :business_name, class: "form-control" %>
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <%= f.label :address_1, class: ["control-label", "col-sm-2"] %>
+    <div class="col-sm-10">
+      <%= f.text_field :address_1, class: "form-control" %>
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <%= f.label :address_2, class: ["control-label", "col-sm-2"] %>
+    <div class="col-sm-10">
+      <%= f.text_field :address_2, class: "form-control" %>
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <%= f.label :city, class: ["control-label", "col-sm-2"] %>
+    <div class="col-sm-10">
+      <%= f.text_field :city, class: "form-control" %>
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <%= f.label :state, class: ["control-label", "col-sm-2"] %>
+    <div class="col-sm-10">
+      <%= f.text_field :state, class: "form-control" %>
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <%= f.label :postal_code, class: ["control-label", "col-sm-2"] %>
+    <div class="col-sm-10">
+      <%= f.text_field :postal_code, class: "form-control" %>
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <%= f.label :country, class: ["control-label", "col-sm-2"] %>
+    <div class="col-sm-10">
+      <%= f.text_field :country, class: "form-control" %>
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <%= f.label :phone_number, class: ["control-label", "col-sm-2"] %>
+    <div class="col-sm-10">
+      <%= f.text_field :phone_number, class: "form-control" %>
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <%= f.label :latitude, class: ["control-label", "col-sm-2"] %>
+    <div class="col-sm-10">
+      <%= f.text_field :latitude, class: "form-control" %>
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <%= f.label :longitude, class: ["control-label", "col-sm-2"] %>
+    <div class="col-sm-10">
+      <%= f.text_field :longitude, class: "form-control" %>
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <%= f.label :radius, class: ["control-label", "col-sm-2"] %>
+    <div class="col-sm-10">
+      <%= f.text_field :radius, class: "form-control" %>
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <%= link_to "Cancel", offers_path, class: ["btn", "btn-default"] %>
+      <%= f.submit nil, class: ["btn", "btn-primary"] %>
+    </div>
+  </div>
+<% end %>

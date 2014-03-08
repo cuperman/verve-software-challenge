@@ -1,3 +1,8 @@
 // Use Twitter Bootstrap for default styles
 @import "bootstrap";
 @import "bootstrap/theme";
+
+// Adjust margin for top navbar
+body {
+  margin-top: 60px;
+}

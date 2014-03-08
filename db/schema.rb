@@ -11,6 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20140308171904) do
+
+  create_table "offers", force: true do |t|
+    t.string   "business_name"
+    t.string   "address_1"
+    t.string   "address_2"
+    t.string   "city"
+    t.string   "state"
+    t.string   "country"
+    t.integer  "postal_code"
+    t.integer  "postal_code_suffix"
+    t.string   "phone_number"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.float    "radius"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

@@ -1,0 +1,70 @@
+<div class="page-header">
+  <h1>Offer</h1>
+</div>
+
+<% if notice %>
+  <div class="alert alert-success"><%= notice %></div>
+<% end %>
+
+<p>
+  <strong>Business name:</strong>
+  <%= @offer.business_name %>
+</p>
+
+<p>
+  <strong>Address 1:</strong>
+  <%= @offer.address_1 %>
+</p>
+
+<p>
+  <strong>Address 2:</strong>
+  <%= @offer.address_2 %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @offer.city %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @offer.state %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @offer.country %>
+</p>
+
+<p>
+  <strong>Postal code:</strong>
+  <%= @offer.postal_code %>
+</p>
+
+<p>
+  <strong>Postal code suffix:</strong>
+  <%= @offer.postal_code_suffix %>
+</p>
+
+<p>
+  <strong>Phone number:</strong>
+  <%= @offer.phone_number %>
+</p>
+
+<p>
+  <strong>Latitude:</strong>
+  <%= @offer.latitude %>
+</p>
+
+<p>
+  <strong>Longitude:</strong>
+  <%= @offer.longitude %>
+</p>
+
+<p>
+  <strong>Radius:</strong>
+  <%= @offer.radius %>
+</p>
+
+<%= link_to 'Back', offers_path, class: ["btn", "btn-default"] %>
+<%= link_to 'Edit', edit_offer_path(@offer), class: ["btn", "btn-primary"] %>
