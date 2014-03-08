@@ -2,6 +2,8 @@
 
 My submission for the [Verve Software Challenge](http://github.com/VerveWireless/software-challenge)
 
+![CircleCI Status](https://circleci.com/gh/cuperman/verve-software-challenge/tree/master.png?circle-token=8733f0aaed82ce8106ff86a28978236195223bcc)
+
 ## Prerequisites
 
 This application was written with Ruby on Rails, so it depends on Ruby, Rubygems, Bundler, and SQLite. Specific versions may not matter, but in case you run into compatibility issues, here are the versions I used during development:
@@ -28,6 +30,12 @@ $ rake db:migrate
 To start the app in development mode, use the `rails server` command, and to view it, go to [localhost:3000](http://localhost:3000) with your favorite web browser.  
 
 *Note: I used Google Chrome during development, but it should be compatible with recent versions of IE, Firefox, Chrome, and Opera.*
+
+## Continuous Integration
+
+I'm using [CircleCI](https://circleci.com) for Continuous Integration.  Jonathan and I discussed this during the phone interview, so I wanted to add it to this project as an example.
+
+It's configured to build every commit, run all unit tests, and deploy to Heroku on success.  The badge at the top of the README indicates the current build status.
 
 ## Heroku Deployment
 

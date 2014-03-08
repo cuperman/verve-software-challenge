@@ -1,0 +1,7 @@
+deployment:
+  production:
+    branch: master
+    commands:
+      - git push git@heroku.com:jcooper-verve-challenge.git $CIRCLE_SHA1:refs/heads/master
+      - heroku run rake db:migrate --app jcooper-verve-challenge:
+          timeout: 400 # if your deploys take a long time
