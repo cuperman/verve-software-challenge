@@ -28,3 +28,9 @@ $ rake db:migrate
 To start the app in development mode, use the `rails server` command, and to view it, go to [localhost:3000](http://localhost:3000) with your favorite web browser.  
 
 *Note: I used Google Chrome during development, but it should be compatible with recent versions of IE, Firefox, Chrome, and Opera.*
+
+## Heroku Deployment
+
+This app is deployed on [Heroku](http://www.heroku.com), so you can try it out by visiting:
+
+[http://jcooper-verve-challenge.herokuapp.com](http://jcooper-verve-challenge.herokuapp.com)
