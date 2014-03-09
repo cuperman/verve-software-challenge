@@ -1,3 +1,11 @@
+dependencies:
+  pre:
+    - npm install -g jshint
+
+test:
+  post:
+    - jshint app/assets/javascripts
+
 deployment:
   production:
     branch: master

@@ -1,4 +1,4 @@
-/* jshint undef:false */
+/* global QUnit, module, asyncTest, expect, ok, start, equal */
 
 (function() {
     "use strict";
