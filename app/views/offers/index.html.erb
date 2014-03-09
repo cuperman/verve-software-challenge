@@ -15,9 +15,11 @@
     Upload TSV
   <% end %>
 
-  <%= link_to destroy_all_offers_path, class: ["btn", "btn-danger"], method: "delete", confirm: "Are you sure?" do %>
-    <span class="glyphicon glyphicon-trash"></span>
-    Delete All
+  <% unless @offers.empty? %>
+    <%= link_to destroy_all_offers_path, class: ["btn", "btn-danger"], method: "delete", confirm: "Are you sure?" do %>
+      <span class="glyphicon glyphicon-trash"></span>
+      Delete All
+    <% end %>
   <% end %>
 </div>
 
