@@ -8,16 +8,14 @@ describe "offers/index" do
         :address_1 => "Address 1",
         :postal_code => 1,
         :latitude => 1.1,
-        :longitude => 1.2,
-        :radius => 5
+        :longitude => 1.2
       ),
       stub_model(Offer,
         :business_name => "Business Name",
         :address_1 => "Address 2",
         :postal_code => 1,
         :latitude => 1.1,
-        :longitude => 1.2,
-        :radius => 5
+        :longitude => 1.2
       )
     ])
   end
@@ -31,6 +29,5 @@ describe "offers/index" do
     assert_select "tr>td", :text => 1.to_s, :count => 2
     assert_select "tr>td", :text => 1.1.to_s, :count => 2
     assert_select "tr>td", :text => 1.2.to_s, :count => 2
-    assert_select "tr>td", :text => "5.0", :count => 2
   end
 end
