@@ -2,6 +2,8 @@ VerveSoftwareChallenge::Application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
+  post "offers/upload", as: "upload_offers"
+  delete "offers/destroy_all", as: "destroy_all_offers"
   resources :offers
 
   get "home" => "home#index"

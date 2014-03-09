@@ -1,3 +1,5 @@
+require 'csv'
+
 class OffersController < ApplicationController
   before_action :set_offer, only: [:show, :edit, :update, :destroy]
 
@@ -61,6 +63,47 @@ class OffersController < ApplicationController
     end
   end
 
+  # POST /offers/upload
+  def upload
+    begin
+      offers = parse_tsv(params[:file])
+    rescue => e
+      redirect_to(request.referrer, flash: { error: "Failed to parse TSV file" })
+      return
+    end
+
+    Offer.transaction do
+      begin
+        offers.each do |offer|
+          logger.debug "offer: #{offer.inspect}"
+          Offer.create!(
+            business_name: offer["name"],
+            address_1: offer["address_1"],
+            address_2: offer["address_2"],
+            postal_code: offer["postal_code_name"],
+            postal_code_suffix: offer["postal_code_suffix"],
+            phone_number: offer["phone_number"],
+            latitude: offer["latitude"],
+            longitude: offer["longitude"],
+            radius: offer["radius"]
+          )
+        end
+      rescue => e
+        redirect_to(request.referrer, flash: { error: "Failed to import data from TSV file: #{e.message}" })
+        raise ActiveRecord::Rollback
+      else
+        redirect_to(offers_path, notice: "Successfully imported offers!")
+      end
+    end
+  end
+
+  # DELETE /offers/destroy_all
+  def destroy_all
+    Offer.delete_all
+
+    redirect_to offers_path, notice: "Deleted all offers!"
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.
@@ -84,5 +127,23 @@ class OffersController < ApplicationController
       :longitude,
       :radius
     )
+  end
+
+  # Parses TSV file, returning an array of hashes where
+  # the keys are column names from first row
+  def parse_tsv(file)
+    begin
+      tsv = CSV.parse(file.read, col_sep: "\t", converters: lambda {|f| f ? f.strip : nil})
+      # assume the first row contains the column names
+      cols = tsv.shift
+
+      # create a hash for each row
+      tsv.collect do |vals|
+        Hash[cols.zip(vals)]
+      end
+    rescue => e
+      logger.debug "failed to parse tsv file: #{e.message}"
+      raise "parse error"
+    end
   end
 end

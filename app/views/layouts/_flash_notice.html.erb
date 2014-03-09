@@ -1,0 +1,8 @@
+<% [:error, :notice].each do |condition| %>
+  <% if flash.key? condition %>
+    <div class="alert alert-<%= condition.to_s == "error" ? "danger" : "info" %> alert-dismissable">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= flash[condition] %>
+    </div>
+  <% end %>
+<% end %>

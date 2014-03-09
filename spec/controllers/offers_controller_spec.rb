@@ -166,4 +166,32 @@ describe OffersController do
     end
   end
 
+  describe "#parse_tsv" do
+    before :each do
+      @controller = OffersController.new
+    end
+
+    it "should raise an error if it rails to parse" do
+      lambda { @controller.instance_eval { parse_tsv(nil) } }.should raise_error("parse error")
+    end
+
+    it "should return an array of hashes where the keys are the column names of the first row" do
+      file = StringIO.new("first_name\tlast_name\nHomer\tSimpson\nBart\tSimpson\n")
+
+      @controller.instance_eval { parse_tsv(file) }.should == [
+        {"first_name" => "Homer", "last_name" => "Simpson"},
+        {"first_name" => "Bart", "last_name" => "Simpson"}
+      ]
+    end
+
+    it "should strip whitespaces from keys and values" do
+      file = StringIO.new(" first_name \t last_name \n Homer \tSimpson \nBart\t Simpson\n")
+
+      @controller.instance_eval { parse_tsv(file) }.should == [
+        {"first_name" => "Homer", "last_name" => "Simpson"},
+        {"first_name" => "Bart", "last_name" => "Simpson"}
+      ]
+    end
+  end
+
 end
