@@ -3,3 +3,12 @@
 <p class="lead">
 This is Jeff Cooper's submission for the <a href="https://github.com/VerveWireless/software-challenge" target="_blank">Verve Software Challenge</a>.
 </p>
+
+<p>To get started, upload an offers TSV file.</p>
+
+<%= link_to "", class: ["btn", "btn-primary", "btn-upload"] do %>
+  <span class="glyphicon glyphicon-upload"></span>
+  Upload TSV
+<% end %>
+
+<%= render "offers/upload_form" %>

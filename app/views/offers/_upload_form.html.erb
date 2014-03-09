@@ -1,0 +1,4 @@
+<%= form_tag(upload_offers_path, id: "form-upload", class: "hide", multipart: true) do %>
+  <%= file_field_tag "file" %>
+  <%= submit_tag %>
+<% end %>
