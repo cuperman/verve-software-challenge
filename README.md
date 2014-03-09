@@ -63,7 +63,7 @@ To run the rspec tests, use the `rspec` command.  The rspec tests also execute t
 
 I'm using [CircleCI](https://circleci.com) for Continuous Integration.  Jonathan and I discussed this during the phone interview, so I wanted to add it to this project as an example.
 
-It's configured to build every commit, run all unit tests, and deploy to Heroku on success.  The badge at the top of the README indicates the current build status.
+It's configured to build every commit, run all unit tests, run [jshint](http://www.jshint.com/about) for Javascript static code analysis, and deploy to Heroku on success.  The badge at the top of the README indicates the current build status.
 
 ## Heroku Deployment
 
