@@ -3,7 +3,9 @@
 
     var ui = {
         uploadButton: ".btn-upload",
-        uploadFormFileInput: "#form-upload [name='file']"
+        uploadFormFileInput: "#form-upload [name='file']",
+
+        offersTable: ".table-offers"
     };
 
     var emitter = $({}); // using a jQuery object as an event emitter
@@ -21,6 +23,16 @@
         // submit the form when file is chosen
         $(ui.uploadFormFileInput).change(function() {
             $(this).closest("form").submit();
+        });
+
+        // use jQuery DataTable to display results
+        $(ui.offersTable).dataTable({
+            sDom: "t<'row'<'col-sm-6'i><'col-sm-6'p>>",
+            sPaginationType: "bootstrap",
+            aoColumnDefs: [
+                { bSortable: false, aTargets: [ 6 ] }
+            ],
+            aaSorting: [[ 5, "asc"]]
         });
     });
 

@@ -2,7 +2,21 @@
 @import "bootstrap";
 @import "bootstrap/theme";
 
+@import "jquery.dataTables";
+
 // Adjust margin for top navbar
 body {
   margin-top: 60px;
+}
+
+// Extend margins for DataTables
+table.dataTable {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+
+// Fix for dataTable pagination
+.dataTables_wrapper .pagination {
+    float: right;
+    margin-top: 0;
 }
