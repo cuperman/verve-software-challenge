@@ -39,7 +39,7 @@
         <th>Postal code</th>
         <th>Latitude</th>
         <th>Longitude</th>
-        <th>Radius</th>
+        <th>Distance from Verve</th>
         <th>Actions</th>
       </tr>
     </thead>
@@ -52,7 +52,7 @@
           <td><%= offer.full_postal_code %></td>
           <td><%= offer.latitude %></td>
           <td><%= offer.longitude %></td>
-          <td><%= offer.radius %></td>
+          <td><%= offer.miles_from_verve.round %> mi</td>
           <td>
             <div class="btn-group">
               <%= link_to offer, class: ["btn", "btn-default", "btn-sm"], title: "Show" do %>
