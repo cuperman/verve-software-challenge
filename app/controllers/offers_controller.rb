@@ -6,7 +6,11 @@ class OffersController < ApplicationController
   # GET /offers
   # GET /offers.json
   def index
-    @offers = Offer.all
+    @distance_options = get_distance_options
+
+    @offers = Offer.all.sort do |a, b|
+      a.distance(@distance_options) <=> b.distance(@distance_options)
+    end
   end
 
   # GET /offers/1
@@ -144,6 +148,19 @@ class OffersController < ApplicationController
     rescue => e
       logger.debug "failed to parse tsv file: #{e.message}"
       raise "parse error"
+    end
+  end
+
+  def get_distance_options
+    if params[:latitude] and params[:longitude]
+      {
+        from: {
+          latitude: params[:latitude].to_f,
+          longitude: params[:longitude].to_f
+        }
+      }
+    else
+      {}
     end
   end
 end

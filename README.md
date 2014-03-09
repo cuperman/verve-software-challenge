@@ -31,6 +31,34 @@ To start the app in development mode, use the `rails server` command, and to vie
 
 *Note: I used Google Chrome during development, but it should be compatible with recent versions of IE, Firefox, Chrome, and Opera.*
 
+## API
+
+Standard Rails API endpoints are exposed for Offer CRUD operations:
+
+```
+GET /offers
+GET /offer/:id
+POST /offers
+PUT /offers/:id
+DELETE /offers/:id
+```
+
+Additionally, the `GET /offers` request supports query string parameters `latitude`, `longitude`.  If you specify both latitude and longitude, it uses those values to calculate the distance for each offer, otherwise it uses the coordinates of the Verve Carlsbad office: (33.1243208, -117.32582479999996).
+
+Once you import data from a TSV file, you can try it out by browsing to this URL (using the coordinates of Balboa Park): 
+
+[http://localhost:3000/offers.json?latitude=32.7341479&longitude=-117.14455299999997](http://localhost:3000/offers.json?latitude=32.7341479&longitude=-117.14455299999997)
+
+## Tests
+
+### Qunit
+
+To view the qunit tests, go to [localhost:3000/tests/qunit](http://localhost:3000/tests/qunit) with your web browser.  This page is only accessible in development and test environments.
+
+### Rspec
+
+To run the rspec tests, use the `rspec` command.  The rspec tests also execute the qunit tests by inspecting the tests/qunit page.
+
 ## Continuous Integration
 
 I'm using [CircleCI](https://circleci.com) for Continuous Integration.  Jonathan and I discussed this during the phone interview, so I wanted to add it to this project as an example.

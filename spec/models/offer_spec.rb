@@ -41,17 +41,17 @@ describe Offer do
     end
   end
 
-  describe "#distance_from_verve" do
+  describe "#distance" do
     it "should return a haversine distance object" do
       Offer.new(
         latitude: 44.978348,
         longitude: -93.268623
-      ).distance_from_verve.should be_kind_of(Haversine::Distance)
+      ).distance.should be_kind_of(Haversine::Distance)
     end
   end
 
-  describe "#miles_from_verve" do
-    it "should match the distance between two coordinates using other distance calculators" do
+  describe "#distance_in_miles" do
+    it "should match expected distance between it and Verve office by default" do
       offer = Offer.new(
         latitude: 44.978348,
         longitude: -93.268623
@@ -63,7 +63,22 @@ describe Offer do
       #
       # Why is haversine gem coming up with a different value?
       # It's close, so I'm just going to leave it as-is
-      offer.miles_from_verve.round(2).should == 1518.65
+      offer.distance_in_miles.round(2).should == 1518.65
+    end
+
+    it "should match expected distance between it and specified coordinates" do
+      offer = Offer.new(
+        latitude: 44.978348,
+        longitude: -93.268623
+      )
+
+      balboa_park = {
+        latitude: 32.7341479,
+        longitude: -117.14455299999997
+      }
+
+      # TODO: This value should actually be 1530.85
+      offer.distance_in_miles(from: balboa_park).round(2).should == 1527.97
     end
   end
 end

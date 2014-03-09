@@ -25,14 +25,23 @@ class Offer < ActiveRecord::Base
     [postal_code, postal_code_suffix].compact.join("-")
   end
 
-  def distance_from_verve
-    Haversine.distance(VerveCoordinates[:latitude],
-                       VerveCoordinates[:longitude],
-                       latitude,
-                       longitude)
+  def distance(options={})
+    coordinates = options[:from] || VerveCoordinates
+
+    if @distance and @source_coordinates == coordinates
+      # return cached result
+      @distance
+    else
+      # store new coordinates and calculate distance
+      @source_coordinates = coordinates
+      @distance = Haversine.distance(@source_coordinates[:latitude],
+                                     @source_coordinates[:longitude],
+                                     self.latitude,
+                                     self.longitude)
+    end
   end
 
-  def miles_from_verve
-    distance_from_verve.to_miles
+  def distance_in_miles(options={})
+    distance(options).to_miles
   end
 end

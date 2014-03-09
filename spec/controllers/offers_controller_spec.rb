@@ -43,7 +43,7 @@ describe OffersController do
     it "assigns all offers as @offers" do
       offer = Offer.create! valid_attributes
       get :index, {}, valid_session
-      assigns(:offers).should eq([offer])
+      assigns(:offers).should include(offer)
     end
   end
 

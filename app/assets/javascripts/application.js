@@ -14,9 +14,11 @@
 //= require jquery_ujs
 //= require turbolinks
 //
+//= require underscore
+//
 //= require bootstrap/alert
 //
 //= require jquery.dataTables
 //= require DT_bootstrap.v3
 //
-//= require_tree .
+//= require offers

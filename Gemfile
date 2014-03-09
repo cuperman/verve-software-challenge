@@ -41,6 +41,8 @@ group :development, :test do
 
   # Use rspec for unit testing
   gem 'rspec-rails'
+  gem 'capybara'
+  gem 'selenium-webdriver'
 end
 
 group :production do
