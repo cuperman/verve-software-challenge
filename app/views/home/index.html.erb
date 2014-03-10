@@ -6,9 +6,23 @@ This is Jeff Cooper's submission for the <a href="https://github.com/VerveWirele
 
 <p>To get started, upload an offers TSV file.</p>
 
-<%= link_to "", class: ["btn", "btn-primary", "btn-upload"] do %>
-  <span class="glyphicon glyphicon-upload"></span>
-  Upload TSV
-<% end %>
+<div id="offers-content">
+  <%= link_to "", class: ["btn", "btn-primary", "btn-upload"] do %>
+    <span class="glyphicon glyphicon-upload"></span>
+    Upload TSV
+  <% end %>
 
-<%= render "offers/upload_form" %>
+  <%= render "offers/upload_form" %>
+</div>
+
+<%= content_for :init do %>
+  <%= javascript_tag do %>
+    (function() {
+        "use strict";
+
+        new app.OffersView({
+          el: "#offers-content"
+        });
+    })();
+  <% end %>
+<% end %>

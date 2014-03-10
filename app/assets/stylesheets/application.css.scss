@@ -11,7 +11,7 @@ body {
 
 // Extend margins for DataTables
 table.dataTable {
-    margin-top: 70px;
+    margin-top: 60px;
     margin-bottom: 30px;
 }
 
@@ -19,4 +19,21 @@ table.dataTable {
 .dataTables_wrapper .pagination {
     float: right;
     margin-top: 0;
+}
+
+// Offers index
+.offer-actions {
+    margin: 15px;
+}
+
+// Maps
+.map-wrap {
+    margin-top: 15px;
+    background-color: #fff;
+    padding: 15px;
+    box-shadow: 0 0 20px #999;
+}
+
+.map {
+    height: 300px;
 }

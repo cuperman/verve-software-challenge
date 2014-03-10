@@ -30,6 +30,9 @@ gem 'jbuilder', '~> 1.2'
 # For calculating distance between two GPS coordinates
 gem 'haversine'
 
+# For client-side templating
+gem 'ejs'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false

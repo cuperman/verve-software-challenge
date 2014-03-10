@@ -76,6 +76,9 @@
 
     // More globally defined variables
     "globals": {
-        "_"         : true
+        "_"         : true,
+        "Backbone"  : true,
+        "JST"       : true,
+        "GMaps"     : true
     }
 }

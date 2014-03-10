@@ -44,4 +44,10 @@ class Offer < ActiveRecord::Base
   def distance_in_miles(options={})
     distance(options).to_miles
   end
+
+  def to_json(options={})
+    super(options.merge(
+          methods: [:address, :full_postal_code]
+        ))
+  end
 end
