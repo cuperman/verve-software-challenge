@@ -10,6 +10,10 @@
   </p>
 </header>
 
+<div class="clear-both">
+  <%= render "layouts/flash_notice" %>
+</div>
+
 <div id="home-content" class="home-content clear-both">
   <% if @offer_count == 0 %>
     <p>To get started, upload an offers TSV file.</p>
