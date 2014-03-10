@@ -49,6 +49,8 @@ Once you import data from a TSV file, you can try it out by browsing to this URL
 
 [http://localhost:3000/offers.json?latitude=32.7341479&longitude=-117.14455299999997](http://localhost:3000/offers.json?latitude=32.7341479&longitude=-117.14455299999997)
 
+Refer to the `distance_in_miles` attribute for the distance between the business and the specified coordinate.  Results are ordered by distance.
+
 ## Tests
 
 ### Qunit
