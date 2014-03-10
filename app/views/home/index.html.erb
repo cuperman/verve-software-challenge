@@ -4,15 +4,24 @@
 This is Jeff Cooper's submission for the <a href="https://github.com/VerveWireless/software-challenge" target="_blank">Verve Software Challenge</a>.
 </p>
 
-<p>To get started, upload an offers TSV file.</p>
-
 <div id="offers-content">
-  <%= link_to "", class: ["btn", "btn-primary", "btn-upload"] do %>
-    <span class="glyphicon glyphicon-upload"></span>
-    Upload TSV
-  <% end %>
+  <% if @offer_count == 0 %>
+    <p>To get started, upload an offers TSV file.</p>
 
-  <%= render "offers/upload_form" %>
+    <%= link_to "", class: ["btn", "btn-primary", "btn-upload"] do %>
+      <span class="glyphicon glyphicon-upload"></span>
+      Upload TSV
+    <% end %>
+
+    <%= render "offers/upload_form" %>
+  <% else %>
+    <p>You have already uploaded offers. Visit the Offers page to see the results.</p>
+
+    <%= link_to offers_path, class: ["btn", "btn-primary"] do %>
+      <span class="glyphicon glyphicon-list"></span>
+      View Offers
+    <% end %>
+  <% end %>
 </div>
 
 <%= content_for :init do %>
