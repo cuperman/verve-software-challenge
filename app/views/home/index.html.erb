@@ -1,10 +1,16 @@
-<h1>Jeff Cooper's Verve Challenge</h1>
+<header class="header-home">
+  <%= link_to "http://about.me/jeffreycooper", target: "_blank", class: "pull-left jeff-profile visible-md visible-lg" do %>
+    <%= image_tag "jeff.png", width: 100, height: 100, class: "img-thumbnail" %>
+  <% end %>
 
-<p class="lead">
-This is Jeff Cooper's submission for the <a href="https://github.com/VerveWireless/software-challenge" target="_blank">Verve Software Challenge</a>.
-</p>
+  <h1 class="pull-left">Jeff Cooper's Verve Challenge</h1>
 
-<div id="offers-content">
+  <p class="lead pull-left">
+    This is Jeff Cooper's submission for the <a href="https://github.com/VerveWireless/software-challenge" target="_blank">Verve Software Challenge</a>.
+  </p>
+</header>
+
+<div id="home-content" class="home-content clear-both">
   <% if @offer_count == 0 %>
     <p>To get started, upload an offers TSV file.</p>
 
@@ -30,7 +36,7 @@ This is Jeff Cooper's submission for the <a href="https://github.com/VerveWirele
         "use strict";
 
         new app.OffersView({
-          el: "#offers-content"
+          el: "#home-content"
         });
     })();
   <% end %>
