@@ -55,7 +55,8 @@ group :production do
   gem 'pg'
 
   # Add static asset serving and logging
-  gem 'rails_12factor', group: :production
+  gem 'rails_12factor'
+  gem 'rails_serve_static_assets'
 end
 
 
